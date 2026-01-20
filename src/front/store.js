@@ -32,7 +32,24 @@ export default function storeReducer(store, action = {}) {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
+    case 'login':
+      sessionStorage.setItem("token", action.payload.token);
+      sessionStorage.setItem("user", JSON.stringify(action.payload.user));
+      return {
+        ...store,
+        token: action.payload.token,
+        user: action.payload.user
+      };
+    case 'logout':
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("user");
+      return {
+        ...store,
+        token: null,
+        user: null
+      };
+
     default:
-      throw Error('Unknown action.');
+      return;
   }    
 }
