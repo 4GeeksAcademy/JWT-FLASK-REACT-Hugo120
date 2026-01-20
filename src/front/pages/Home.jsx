@@ -4,7 +4,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 export const Home = () => {
 
-	const { store, dispatch } = useGlobalReducer()
+	const [store, dispatch] = useGlobalReducer()
 
 	const loadMessage = async () => {
 		try {
