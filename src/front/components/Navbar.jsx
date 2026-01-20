@@ -6,7 +6,7 @@ export const Navbar = () => {
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
-		dispatch({ type: "LOGOUT" });
+		dispatch({ type: "logout" });
 		navigate("/login");
 	};
 
@@ -16,8 +16,8 @@ export const Navbar = () => {
                 {/* Logo con un estilo más atrevido */}
                 <Link to="/" className="navbar-brand d-flex align-items-center">
                     <span className="fw-light text-info">My</span>
-                    <span className="fw-bold text-white">Project</span>
-                    <div className="ms-2 badge bg-info text-dark" style={{fontSize: "0.6rem"}}>BETA</div>
+                    <span className="fw-bold text-white">JWT Project</span>
+                    <div className="ms-2 badge bg-info text-dark" style={{fontSize: "0.6rem"}}>Hugo</div>
                 </Link>
 
                 <div className="ms-auto d-flex align-items-center">

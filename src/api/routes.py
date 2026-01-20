@@ -57,3 +57,15 @@ def login():
         "user": user.serialize()
     }), 200
     
+@api.route('/private', methods=['GET'])
+@jwt_required()
+def private():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    if user is None:
+        return jsonify({"msg": "User not found"}), 404
+
+    return jsonify({
+        "msg": "Access to private route granted",
+        "user": user.serialize()
+    }), 200

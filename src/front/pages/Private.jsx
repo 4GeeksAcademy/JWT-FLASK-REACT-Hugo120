@@ -26,12 +26,13 @@ export const Private = () => {
                 });
 
                 if (response.ok) {
-                    navigate("/login");
+                    setLoading(false);
+                    {/*navigate("/");*/}
                 } else {
                     setLoading(false);
                 }
             } catch (error) {
-                setError("Error de red. Por favor, inténtalo de nuevo.");
+                setError("Error de login. Por favor, inténtalo de nuevo.");
                 console.error("Error during token validation:", error);
                 setLoading(false);
             }
@@ -62,7 +63,7 @@ export const Private = () => {
         <div className="container-fluid min-vh-100 bg-light py-5">
         <div className="container">
             <div className="row">
-                //columna del perfil de usuario
+               
                 <div className="col-lg-4 mb-4">
                     <div className="card border-0 shadow-sm rounded-4 text-center p-4">
                         <div className="mx-auto mb-3 bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: "80px", height: "80px" }}>
@@ -78,7 +79,7 @@ export const Private = () => {
                     </div>
                 </div>
 
-                //COlumna principal del panel
+               
                 <div className="col-lg-8">
                     <div className="card border-0 shadow-sm rounded-4 p-4 mb-4">
                         <div className="d-flex align-items-center mb-4">
@@ -115,7 +116,7 @@ export const Private = () => {
                         </div>
                     </div>
 
-                    //acceso rápido a otras secciones
+                   
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                         <Link to="/" className="btn btn-outline-secondary rounded-pill px-4">
                             <i className="fa-solid fa-house me-2"></i>Ir a Inicio

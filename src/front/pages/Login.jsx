@@ -8,7 +8,7 @@ export const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const { dispatch } = useGlobalReducer();    
+    const [store, dispatch] = useGlobalReducer();    
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,7 +17,7 @@ export const Login = () => {
         setError(null);
 
         try {
-            const response = await fetch(`${getBackendURL()}/login`, {
+            const response = await fetch(`${getBackendURL()}/api/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -26,10 +26,11 @@ export const Login = () => {
             });
 
             const data = await response.json();
+            console.log("Login response data:", data);
 
             if (response.ok) {
                 //Cuando el Login esta ok te guarda el token y la info del usuario en el global store
-                dispatch({ type: "LOGIN", payload: { 
+                dispatch({ type: "login", payload: { 
                     token: data.token,
                     user: data.user } });
                 navigate("/private");
