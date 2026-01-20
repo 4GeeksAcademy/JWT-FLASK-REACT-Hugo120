@@ -27,9 +27,8 @@ export const Private = () => {
 
                 if (response.ok) {
                     setLoading(false);
-                    {/*navigate("/");*/}
                 } else {
-                    setLoading(false);
+                    navigate("/login");
                 }
             } catch (error) {
                 setError("Error de login. Por favor, inténtalo de nuevo.");
